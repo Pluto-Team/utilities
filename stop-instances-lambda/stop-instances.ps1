@@ -16,3 +16,13 @@ Write-Host "**** GETTING LIST OF INSTANCES ********"
     Write-Host " Instance ID " $id " state is now" ( Get-EC2InstanceStatus -InstanceId $id -IncludeAllInstance $true ).InstanceState.Name
  
 }
+
+If ( ( Get-RDSDBInstance -DBInstanceIdentifier "brian-mssql-database1" ).DBInstanceStatus -ne "stopped" ) {
+    Write-Host "***** STOPPING RDS INSTANCE ******* "
+    Stop-RDSDBInstance -DBInstanceIdentifier "brian-mssql-database1"
+}
+
+else {
+    Write-Host "RDS instance aleady stopped"
+}
+
