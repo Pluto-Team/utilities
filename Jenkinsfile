@@ -1,13 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Publish Stop Instances') {
             steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                sh 'chmod +x push-for-lambda.ps1'
+                sh './push-for-lambda.ps1'
             }
         }
     }
