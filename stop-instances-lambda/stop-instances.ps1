@@ -17,9 +17,9 @@ Write-Host "**** GETTING LIST OF INSTANCES ********"
  
 }
 
-If ( ( Get-RDSDBInstance -DBInstanceIdentifier "brian-mssql-database1" ).DBInstanceStatus -ne "stopped" ) {
+If ( ( Get-RDSDBInstance -DBInstanceIdentifier "bhighnam-postgresql-db" ).DBInstanceStatus -ne "stopped" ) {
     Write-Host "***** STOPPING RDS INSTANCE ******* "
-    Stop-RDSDBInstance -DBInstanceIdentifier "brian-mssql-database1"
+    Stop-RDSDBInstance -DBInstanceIdentifier "bhighnam-postgresql-db"
 }
 
 else {
